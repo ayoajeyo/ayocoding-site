@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>아요코딩 AYOCODING</title>
+<meta name="description" content="아요코딩은 현장 물리치료사가 직접 만드는 운동·재활 현장용 앱을 개발합니다. 바디샷(BODYSHOT), 메디컬링크.">
+<meta property="og:title" content="아요코딩 AYOCODING">
+<meta property="og:description" content="현장을 아는 사람이 만드는 앱 — 바디샷, 메디컬링크">
+<meta property="og:image" content="https://ayocoding.co.kr/img/bodyshot.png">
+<link rel="icon" href="img/bodyshot.png">
+<style>
+  :root{--blue:#0070F5;--ink:#191F28;--sub:#4E5968;--line:#E5E8EB;--bg:#F7F9FC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.65;word-break:keep-all}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;font-size:19px;letter-spacing:-.3px;color:var(--ink)}
+  .logo b{color:var(--blue)}
+  nav a{margin-left:20px;color:var(--sub);font-size:15px}
+  .hero{background:linear-gradient(160deg,#E8F3FF 0%,#fff 70%);padding:84px 0 72px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.3;letter-spacing:-1px}
+  .hero h1 em{font-style:normal;color:var(--blue)}
+  .hero p{margin-top:18px;font-size:18px;color:var(--sub);max-width:620px}
+  section{padding:64px 0}
+  section h2{font-size:26px;letter-spacing:-.5px;margin-bottom:8px}
+  section .lead{color:var(--sub);margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{border:1px solid var(--line);border-radius:20px;padding:28px;background:#fff}
+  .card .top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .card img{width:56px;height:56px;border-radius:14px;border:1px solid var(--line)}
+  .card h3{font-size:20px}
+  .card .tag{font-size:13px;color:var(--blue);font-weight:600}
+  .card p{color:var(--sub);font-size:15.5px}
+  .card ul{margin:14px 0 0 18px;color:var(--sub);font-size:15px}
+  .card .links{margin-top:18px;font-size:14px;display:flex;flex-wrap:wrap;gap:6px 16px}
+  .about{background:var(--bg)}
+  .about p{max-width:720px;color:var(--sub);font-size:16.5px}
+  .info{width:100%;border-collapse:collapse;font-size:15px}
+  .info th,.info td{text-align:left;padding:12px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+  .info th{width:170px;color:var(--sub);font-weight:500}
+  footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13px;color:#8B95A1}
+  footer .en{margin-top:8px}
+  @media(max-width:560px){nav a{margin-left:14px;font-size:14px}.info th{width:110px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#">AYO<b>CODING</b></a>
+  <nav><a href="#apps">서비스</a><a href="#about">회사 소개</a><a href="#contact">연락처</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>현장을 아는 사람이<br>현장에서 쓰는 앱을 <em>만듭니다</em></h1>
+  <p>아요코딩은 현직 물리치료사가 운영하는 앱 개발 회사입니다. 운동·자세 관리 센터와 병원에서 매일 겪는 불편을 직접 겪어 본 사람이, 쓰기 쉬운 도구로 바꿉니다.</p>
+</div></div>
+
+<section id="apps"><div class="wrap">
+  <h2>서비스</h2>
+  <p class="lead">아요코딩이 만들고 운영하는 앱입니다.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="top"><img src="img/bodyshot.png" alt="바디샷 아이콘"><div><h3>바디샷 BODYSHOT</h3><span class="tag">센터용 자세·체형 측정 앱</span></div></div>
+      <p>휴대폰 카메라로 회원의 자세를 찍으면 체형, 관절 가동 범위(ROM), 거북목, 척추 균형을 자동으로 측정합니다. 회차별 변화를 비교하고, 센터 이름이 들어간 결과 리포트를 회원에게 보낼 수 있습니다.</p>
+      <ul><li>필라테스·PT·자세 관리 센터용</li><li>웹 앱 · Android 앱(Google Play 출시 준비 중)</li></ul>
+      <div class="links">
+        <a href="https://ayoajeyo.github.io/posture-check/">앱 열기</a>
+        <a href="https://ayoajeyo.github.io/posture-check/privacy.html">개인정보처리방침</a>
+        <a href="https://ayoajeyo.github.io/posture-check/terms.html">이용약관</a>
+        <a href="https://ayoajeyo.github.io/posture-check/delete.html">계정·데이터 삭제</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="img/medicallink.png" alt="메디컬링크 아이콘"><div><h3>메디컬링크</h3><span class="tag">병원 직원용 업무 앱</span></div></div>
+      <p>외래 대기 순서 안내, 입원환자·예약 관리, 직원 메신저와 공지까지 병원 직원이 함께 쓰는 업무 앱입니다. 환자 정보는 로그인한 직원만 볼 수 있고, 열람 기록이 남습니다.</p>
+      <ul><li>병원·의원 직원용</li><li>웹 앱 (휴대폰·PC)</li></ul>
+      <div class="links">
+        <a href="https://medicallinkapp.co.kr">앱 열기</a>
+        <a href="https://medicallinkapp.co.kr/privacy.html">개인정보처리방침</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="about" class="about"><div class="wrap">
+  <h2>회사 소개</h2>
+  <p>아요코딩은 부산에 있는 앱 개발 회사입니다. 대표 남재진은 현직 물리치료사이자 물리치료 교육자로, 현장에서 필요한 기능만 골라 단순하고 정확하게 만드는 것을 원칙으로 합니다. 측정 결과는 운동 지도와 관리를 돕는 참고 자료이며, 의료 진단을 대신하지 않습니다.</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>사업자 정보 · 연락처</h2>
+  <p class="lead">서비스 문의, 제휴, 개인정보 관련 요청은 이메일로 보내 주세요.</p>
+  <table class="info">
+    <tr><th>상호</th><td>아요코딩 (AYOCODING)</td></tr>
+    <tr><th>대표자</th><td>남재진</td></tr>
+    <tr><th>사업자등록번호</th><td>356-03-03779</td></tr>
+    <tr><th>통신판매업 신고번호</th><td>제2026-부산북구-0566호</td></tr>
+    <tr><th>주소</th><td>부산광역시 북구 화명대로 20, 8층 801-165호 (화명동, 대성빌딩)</td></tr>
+    <tr><th>이메일</th><td><a href="mailto:ayobodyyo@gmail.com">ayobodyyo@gmail.com</a></td></tr>
+  </table>
+</div></section>
+
+<footer><div class="wrap">
+  © 2026 아요코딩. All rights reserved.
+  <div class="en">AYOCODING · CEO Jaejin Nam · Business Reg. No. 356-03-03779 · 801-165, 20 Hwamyeong-daero, Buk-gu, Busan 46527, Republic of Korea · ayobodyyo@gmail.com · D-U-N-S 697128801</div>
+</div></footer>
+</body>
+</html>
