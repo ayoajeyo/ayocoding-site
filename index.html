@@ -8,104 +8,315 @@
 <meta property="og:title" content="아요코딩 AYOCODING">
 <meta property="og:description" content="현장을 아는 사람이 만드는 앱 — 바디샷, 메디컬링크">
 <meta property="og:image" content="https://ayocoding.co.kr/img/bodyshot.png">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="img/bodyshot.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root{--blue:#0070F5;--ink:#191F28;--sub:#4E5968;--line:#E5E8EB;--bg:#F7F9FC}
+  :root{
+    --blue:#3182F6;--blue-d:#1B64DA;--blue-l:#E8F3FF;
+    --g900:#191F28;--g800:#333D4B;--g700:#4E5968;--g600:#6B7684;--g500:#8B95A1;--g300:#D1D6DB;--g200:#E5E8EB;--g100:#F2F4F6;--g50:#F9FAFB;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.65;word-break:keep-all}
-  a{color:var(--blue);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-weight:800;font-size:19px;letter-spacing:-.3px;color:var(--ink)}
-  .logo b{color:var(--blue)}
-  nav a{margin-left:20px;color:var(--sub);font-size:15px}
-  .hero{background:linear-gradient(160deg,#E8F3FF 0%,#fff 70%);padding:84px 0 72px}
-  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.3;letter-spacing:-1px}
+  html{scroll-behavior:smooth;scroll-padding-top:64px}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--g900);background:#fff;line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto 0;height:64px;z-index:20;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);transition:box-shadow .2s}
+  header.on{box-shadow:0 1px 0 var(--g200)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.4px}
+  .logo i{width:26px;height:26px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px;font-weight:800}
+  nav{display:flex;align-items:center;gap:6px}
+  nav a{padding:8px 12px;border-radius:8px;font-size:15px;font-weight:500;color:var(--g700);transition:background .15s,color .15s}
+  nav a:hover{background:var(--g100);color:var(--g900)}
+  nav a.cta{background:var(--blue);color:#fff;font-weight:600;margin-left:6px}
+  nav a.cta:hover{background:var(--blue-d);color:#fff}
+
+  /* buttons */
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 26px;border-radius:16px;font-size:17px;font-weight:600;transition:transform .15s,background .15s}
+  .btn:active{transform:scale(.97)}
+  .btn.p{background:var(--blue);color:#fff}.btn.p:hover{background:var(--blue-d)}
+  .btn.s{background:var(--g100);color:var(--g800)}.btn.s:hover{background:var(--g200)}
+  .btn.w{background:#fff;color:var(--g900)}.btn.w:hover{background:var(--g100)}
+
+  /* hero */
+  .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 0 60px;overflow:hidden}
+  .eyebrow{display:inline-block;font-size:15px;font-weight:700;color:var(--blue);background:var(--blue-l);padding:6px 14px;border-radius:99px;margin-bottom:24px}
+  .hero h1{font-size:clamp(36px,6.4vw,72px);line-height:1.25;letter-spacing:-.04em;font-weight:800}
   .hero h1 em{font-style:normal;color:var(--blue)}
-  .hero p{margin-top:18px;font-size:18px;color:var(--sub);max-width:620px}
-  section{padding:64px 0}
-  section h2{font-size:26px;letter-spacing:-.5px;margin-bottom:8px}
-  section .lead{color:var(--sub);margin-bottom:28px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-  .card{border:1px solid var(--line);border-radius:20px;padding:28px;background:#fff}
-  .card .top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-  .card img{width:56px;height:56px;border-radius:14px;border:1px solid var(--line)}
-  .card h3{font-size:20px}
-  .card .tag{font-size:13px;color:var(--blue);font-weight:600}
-  .card p{color:var(--sub);font-size:15.5px}
-  .card ul{margin:14px 0 0 18px;color:var(--sub);font-size:15px}
-  .card .links{margin-top:18px;font-size:14px;display:flex;flex-wrap:wrap;gap:6px 16px}
-  .about{background:var(--bg)}
-  .about p{max-width:720px;color:var(--sub);font-size:16.5px}
-  .info{width:100%;border-collapse:collapse;font-size:15px}
-  .info th,.info td{text-align:left;padding:12px 4px;border-bottom:1px solid var(--line);vertical-align:top}
-  .info th{width:170px;color:var(--sub);font-weight:500}
-  footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13px;color:#8B95A1}
-  footer .en{margin-top:8px}
-  @media(max-width:560px){nav a{margin-left:14px;font-size:14px}.info th{width:110px}}
+  .hero p{margin:24px auto 36px;font-size:clamp(17px,2vw,21px);color:var(--g700);max-width:640px}
+  .hero .btns{justify-content:center}
+  .fan{position:relative;width:min(760px,100%);height:clamp(260px,40vw,400px);margin:64px auto 0}
+  .fan .ph{position:absolute;bottom:0;left:50%;width:clamp(150px,22vw,220px)}
+  .fan .ph:nth-child(1){transform:translateX(-160%) rotate(-8deg) translateY(30px)}
+  .fan .ph:nth-child(2){transform:translateX(-50%);z-index:2;width:clamp(170px,25vw,250px)}
+  .fan .ph:nth-child(3){transform:translateX(60%) rotate(8deg) translateY(30px)}
+
+  /* phone / photo frame */
+  .ph{border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -20px rgba(25,31,40,.25),0 0 0 1px rgba(0,0,0,.04)}
+  .ph img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .ph.dev{background:var(--g900);padding:8px;border-radius:34px}
+  .ph.dev img{border-radius:26px}
+
+  /* sections */
+  section{padding:140px 0}
+  .tag{font-size:17px;font-weight:700;color:var(--blue);margin-bottom:14px}
+  h2{font-size:clamp(30px,4.6vw,52px);line-height:1.3;letter-spacing:-.035em;font-weight:800}
+  h2 em{font-style:normal;color:var(--blue)}
+  .desc{margin-top:20px;font-size:clamp(17px,1.8vw,20px);color:var(--g700);line-height:1.7}
+  .center{text-align:center}
+  .center .desc{max-width:620px;margin-left:auto;margin-right:auto}
+
+  .intro{background:var(--g50)}
+  .appicon{width:88px;height:88px;border-radius:24px;margin:0 auto 28px}
+  .intro .appicon{box-shadow:0 12px 30px -10px rgba(49,130,246,.45)}
+
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .feat + .feat{margin-top:160px}
+  .feat.rev .txt{order:2}
+  .feat .vis{display:flex;justify-content:center;gap:20px}
+  .feat .vis .ph{width:min(240px,48%)}
+  .feat .vis .ph:last-child{margin-top:60px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .pills span{font-size:15px;font-weight:600;color:var(--g700);background:var(--g100);padding:8px 14px;border-radius:99px}
+
+  /* card grid */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px;text-align:left}
+  .card{border-radius:24px;padding:32px 28px}
+  .card b{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;font-size:20px;margin-bottom:20px}
+  .card h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+  .card p{font-size:16px}
+
+  /* dark (medicallink) */
+  .dark{background:var(--g900);color:#fff}
+  .dark .tag{color:#64A8FF}
+  .dark .desc{color:#B0B8C1}
+  .dark .cards .card{background:#2B323C}
+  .dark .card b{background:rgba(100,168,255,.15);color:#64A8FF}
+  .dark .card p{color:#B0B8C1}
+  .dark .btns{justify-content:center;margin-top:40px}
+
+  /* about */
+  .quote{font-size:clamp(24px,3.4vw,38px);line-height:1.5;letter-spacing:-.03em;font-weight:700;max-width:860px;margin:0 auto}
+  .quote em{font-style:normal;color:var(--blue)}
+  .note{margin-top:28px;font-size:15px;color:var(--g500)}
+
+  /* cta */
+  .ctaband{padding:0 0 140px}
+  .ctabox{background:var(--blue);color:#fff;border-radius:32px;padding:80px 32px;text-align:center}
+  .ctabox h2{color:#fff}
+  .ctabox p{margin:16px 0 36px;font-size:18px;color:rgba(255,255,255,.85)}
+  .ctabox .btns{justify-content:center}
+  .ctabox .btn.o{background:rgba(255,255,255,.16);color:#fff}.ctabox .btn.o:hover{background:rgba(255,255,255,.26)}
+
+  /* footer */
+  footer{background:var(--g50);padding:56px 0 72px;font-size:14px;color:var(--g600)}
+  footer .top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--g200);margin-bottom:28px}
+  footer h4{font-size:15px;color:var(--g800);margin-bottom:12px}
+  footer .col a{display:block;padding:3px 0;color:var(--g600)}
+  footer .col a:hover{color:var(--g900)}
+  footer .cols{display:flex;gap:56px;flex-wrap:wrap}
+  footer dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;line-height:1.6}
+  footer dt{color:var(--g500)}
+  footer dd{color:var(--g700)}
+  footer .en{margin-top:20px;font-size:13px;color:var(--g500);line-height:1.7}
+  footer .copy{margin-top:16px;font-size:13px;color:var(--g500)}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  @media(max-width:860px){
+    section{padding:96px 0}
+    .feat{grid-template-columns:1fr;gap:44px}
+    .feat.rev .txt{order:0}
+    .feat + .feat{margin-top:110px}
+    .feat .txt{text-align:center}
+    .feat .pills{justify-content:center}
+    .cards{grid-template-columns:1fr;margin-top:44px}
+    .ctaband{padding-bottom:96px}
+    .ctabox{padding:56px 24px;border-radius:24px}
+  }
+  @media(max-width:560px){
+    nav a:not(.cta){display:none}
+    .btn{height:52px;padding:0 22px;font-size:16px}
+    .hero .btns .btn{flex:1 1 140px}
+    .hero p br,.desc br{display:none}
+    .fan .ph:nth-child(1){transform:translateX(-128%) rotate(-8deg) translateY(30px)}
+    .fan .ph:nth-child(3){transform:translateX(28%) rotate(8deg) translateY(30px)}
+    footer dl{grid-template-columns:1fr;gap:0}
+    footer dd{margin-bottom:8px}
+  }
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <a class="logo" href="#">AYO<b>CODING</b></a>
-  <nav><a href="#apps">서비스</a><a href="#about">회사 소개</a><a href="#contact">연락처</a></nav>
+<header id="hd"><div class="wrap">
+  <a class="logo" href="#"><i>A</i>AYOCODING</a>
+  <nav>
+    <a href="#bodyshot">바디샷</a>
+    <a href="#medicallink">메디컬링크</a>
+    <a href="#about">회사 소개</a>
+    <a class="cta" href="#contact">문의하기</a>
+  </nav>
 </div></header>
 
+<main>
 <div class="hero"><div class="wrap">
-  <h1>현장을 아는 사람이<br>현장에서 쓰는 앱을 <em>만듭니다</em></h1>
-  <p>아요코딩은 현직 물리치료사가 운영하는 앱 개발 회사입니다. 운동·자세 관리 센터와 병원에서 매일 겪는 불편을 직접 겪어 본 사람이, 쓰기 쉬운 도구로 바꿉니다.</p>
+  <span class="eyebrow rv">현직 물리치료사가 만드는 앱</span>
+  <h1 class="rv d1">현장을 아는 사람이<br>현장에서 쓰는 앱을<br><em>만듭니다</em></h1>
+  <p class="rv d2">운동·자세 관리 센터와 병원에서 매일 겪는 불편을 <br>직접 겪어 본 사람이, 쓰기 쉬운 도구로 바꿉니다.</p>
+  <div class="btns rv d3">
+    <a class="btn p" href="#bodyshot">서비스 둘러보기</a>
+    <a class="btn s" href="#contact">도입 문의</a>
+  </div>
+  <div class="fan rv d3" aria-hidden="true">
+    <div class="ph"><img src="img/shot-05-fhp.jpg" alt=""></div>
+    <div class="ph"><img src="img/shot-01-body-front.jpg" alt=""></div>
+    <div class="ph"><img src="img/shot-03-rom.jpg" alt=""></div>
+  </div>
 </div></div>
 
-<section id="apps"><div class="wrap">
-  <h2>서비스</h2>
-  <p class="lead">아요코딩이 만들고 운영하는 앱입니다.</p>
-  <div class="grid">
-    <div class="card">
-      <div class="top"><img src="img/bodyshot.png" alt="바디샷 아이콘"><div><h3>바디샷 BODYSHOT</h3><span class="tag">센터용 자세·체형 측정 앱</span></div></div>
-      <p>휴대폰 카메라로 회원의 자세를 찍으면 체형, 관절 가동 범위(ROM), 거북목, 척추 균형을 자동으로 측정합니다. 회차별 변화를 비교하고, 센터 이름이 들어간 결과 리포트를 회원에게 보낼 수 있습니다.</p>
-      <ul><li>필라테스·PT·자세 관리 센터용</li><li>웹 앱 · Android 앱(Google Play 출시 준비 중)</li></ul>
-      <div class="links">
+<section id="bodyshot" class="intro center"><div class="wrap">
+  <img class="appicon rv" src="img/bodyshot.png" alt="바디샷 아이콘">
+  <p class="tag rv">바디샷 BODYSHOT</p>
+  <h2 class="rv d1">휴대폰으로 찍으면<br>자세가 <em>숫자</em>가 돼요</h2>
+  <p class="desc rv d2">필라테스·PT·자세 관리 센터를 위한 자세·체형 측정 앱이에요. <br>회차별 변화를 비교하고, 센터 이름이 들어간 결과 리포트를 회원에게 보낼 수 있어요.</p>
+  <div class="btns rv d3" style="justify-content:center;margin-top:36px">
+    <a class="btn p" href="https://ayoajeyo.github.io/posture-check/">바디샷 열기</a>
+  </div>
+  <p class="note rv d3">웹 앱 · Android 앱(Google Play 출시 준비 중)</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="feat">
+    <div class="txt">
+      <p class="tag rv">체형 분석</p>
+      <h2 class="rv d1">사진 한 장으로<br>체형 분석</h2>
+      <p class="desc rv d2">어깨·골반·무릎·발목의 좌우 높낮이를 각도로 보여 줘요. 옆모습 사진으로는 귀·어깨·골반·무릎이 앞뒤로 얼마나 벗어났는지 cm로 알려 줘요.</p>
+      <div class="pills rv d3"><span>정면 좌우 균형</span><span>옆모습 정렬</span></div>
+    </div>
+    <div class="vis">
+      <div class="ph rv"><img src="img/shot-01-body-front.jpg" alt="정면 체형 분석 화면" loading="lazy"></div>
+      <div class="ph rv d2"><img src="img/shot-02-body-side.jpg" alt="옆모습 자세 정렬 화면" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="feat rev">
+    <div class="txt">
+      <p class="tag rv">관절 가동범위(ROM)</p>
+      <h2 class="rv d1">관절이 움직이는 범위를<br><em>각도로</em> 재요</h2>
+      <p class="desc rv d2">부위를 누르면 바로 측정이 시작돼요. 정상 범위와 함께 회차마다 기록돼요.</p>
+      <div class="pills rv d3"><span>목</span><span>어깨</span><span>팔꿈치</span><span>고관절</span><span>무릎</span><span>발목</span><span>몸통</span></div>
+    </div>
+    <div class="vis">
+      <div class="ph rv"><img src="img/shot-03-rom.jpg" alt="어깨 관절 가동범위 측정 화면" loading="lazy"></div>
+      <div class="ph dev rv d2"><img src="img/shot-04-rom-map.jpg" alt="부위 선택 화면" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="txt">
+      <p class="tag rv">거북목 · 척추 균형</p>
+      <h2 class="rv d1"><em>거북목</em>도, 척추 균형도<br>숫자로 확인</h2>
+      <p class="desc rv d2">옆모습 사진 한 장으로 두개척추각(CVA)을 재고, 앞으로 숙인 등의 좌우 높이 차이를 각도로 보여 줘요.</p>
+      <div class="pills rv d3"><span>두개척추각(CVA)</span><span>등 좌우 높이 차이</span></div>
+    </div>
+    <div class="vis">
+      <div class="ph rv"><img src="img/shot-05-fhp.jpg" alt="거북목 측정 화면" loading="lazy"></div>
+      <div class="ph rv d2"><img src="img/shot-06-scol.jpg" alt="척추 균형 측정 화면" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="feat rev">
+    <div class="txt">
+      <p class="tag rv">회원 관리 · 운동 숙제</p>
+      <h2 class="rv d1">회원별 기록은 한곳에,<br>운동 숙제는 <em>바로</em></h2>
+      <p class="desc rv d2">측정 회차·사진·상담 기록을 회원별로 모아 두고, 결과에 맞는 부위별 운동을 골라 회원에게 바로 전달해요.</p>
+    </div>
+    <div class="vis">
+      <div class="ph dev rv"><img src="img/shot-07-members.jpg" alt="회원 목록 화면" loading="lazy"></div>
+      <div class="ph dev rv d2"><img src="img/shot-08-exercise.jpg" alt="운동 관리 화면" loading="lazy"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="medicallink" class="dark center"><div class="wrap">
+  <img class="appicon rv" src="img/medicallink.png" alt="메디컬링크 아이콘">
+  <p class="tag rv">메디컬링크</p>
+  <h2 class="rv d1">병원 직원이 함께 쓰는<br>업무 앱</h2>
+  <p class="desc rv d2">외래 대기 순서 안내부터 입원환자·예약 관리, 직원 메신저와 공지까지. <br>휴대폰과 PC 어디서나 웹으로 써요.</p>
+  <div class="cards">
+    <div class="card rv"><b>⏱</b><h3>외래 대기 순서 안내</h3><p>외래 대기 순서를 직원이 함께 보며 안내해요.</p></div>
+    <div class="card rv d1"><b>🛏</b><h3>입원환자·예약 관리</h3><p>입원환자와 예약을 한곳에서 관리해요.</p></div>
+    <div class="card rv d2"><b>💬</b><h3>직원 메신저·공지</h3><p>직원끼리 메시지와 공지를 주고받아요.</p></div>
+  </div>
+  <p class="desc rv" style="font-size:16px;margin-top:32px">환자 정보는 로그인한 직원만 볼 수 있고, 열람 기록이 남아요.</p>
+  <div class="btns rv"><a class="btn w" href="https://medicallinkapp.co.kr">메디컬링크 열기</a></div>
+</div></section>
+
+<section id="about" class="center"><div class="wrap">
+  <p class="tag rv">회사 소개</p>
+  <p class="quote rv d1">현장에서 정말 필요한 기능만 골라<br><em>단순하고 정확하게</em> 만듭니다.</p>
+  <p class="desc rv d2">아요코딩은 부산에 있는 앱 개발 회사예요. 대표 남재진은 현직 물리치료사이자 물리치료 교육자로, 현장에서 직접 겪은 불편에서 앱을 시작합니다.</p>
+  <p class="note rv d3">측정 결과는 운동 지도와 관리를 돕는 참고 자료이며, 의료 진단을 대신하지 않습니다.</p>
+</div></section>
+
+<div class="ctaband" id="contact"><div class="wrap">
+  <div class="ctabox rv">
+    <h2>센터·병원 도입이<br>궁금하신가요?</h2>
+    <p>서비스 문의, 제휴, 개인정보 관련 요청은 이메일로 보내 주세요.</p>
+    <div class="btns">
+      <a class="btn w" href="mailto:ayocoding01@gmail.com">ayocoding01@gmail.com</a>
+      <a class="btn o" href="https://ayoajeyo.github.io/posture-check/">바디샷 써 보기</a>
+    </div>
+  </div>
+</div></div>
+</main>
+
+<footer><div class="wrap">
+  <div class="top">
+    <a class="logo" href="#"><i>A</i>AYOCODING</a>
+    <div class="cols">
+      <div class="col"><h4>바디샷</h4>
         <a href="https://ayoajeyo.github.io/posture-check/">앱 열기</a>
         <a href="https://ayoajeyo.github.io/posture-check/privacy.html">개인정보처리방침</a>
         <a href="https://ayoajeyo.github.io/posture-check/terms.html">이용약관</a>
         <a href="https://ayoajeyo.github.io/posture-check/delete.html">계정·데이터 삭제</a>
       </div>
-    </div>
-    <div class="card">
-      <div class="top"><img src="img/medicallink.png" alt="메디컬링크 아이콘"><div><h3>메디컬링크</h3><span class="tag">병원 직원용 업무 앱</span></div></div>
-      <p>외래 대기 순서 안내, 입원환자·예약 관리, 직원 메신저와 공지까지 병원 직원이 함께 쓰는 업무 앱입니다. 환자 정보는 로그인한 직원만 볼 수 있고, 열람 기록이 남습니다.</p>
-      <ul><li>병원·의원 직원용</li><li>웹 앱 (휴대폰·PC)</li></ul>
-      <div class="links">
+      <div class="col"><h4>메디컬링크</h4>
         <a href="https://medicallinkapp.co.kr">앱 열기</a>
         <a href="https://medicallinkapp.co.kr/privacy.html">개인정보처리방침</a>
       </div>
     </div>
   </div>
-</div></section>
-
-<section id="about" class="about"><div class="wrap">
-  <h2>회사 소개</h2>
-  <p>아요코딩은 부산에 있는 앱 개발 회사입니다. 대표 남재진은 현직 물리치료사이자 물리치료 교육자로, 현장에서 필요한 기능만 골라 단순하고 정확하게 만드는 것을 원칙으로 합니다. 측정 결과는 운동 지도와 관리를 돕는 참고 자료이며, 의료 진단을 대신하지 않습니다.</p>
-</div></section>
-
-<section id="contact"><div class="wrap">
-  <h2>사업자 정보 · 연락처</h2>
-  <p class="lead">서비스 문의, 제휴, 개인정보 관련 요청은 이메일로 보내 주세요.</p>
-  <table class="info">
-    <tr><th>상호</th><td>아요코딩 (AYOCODING)</td></tr>
-    <tr><th>대표자</th><td>남재진</td></tr>
-    <tr><th>사업자등록번호</th><td>356-03-03779</td></tr>
-    <tr><th>통신판매업 신고번호</th><td>제2026-부산북구-0566호</td></tr>
-    <tr><th>주소</th><td>부산광역시 북구 화명대로 20, 8층 801-165호 (화명동, 대성빌딩)<br><span style="color:#8B95A1">801-165, 20 Hwamyeong-daero, Buk-gu, Busan, 46527, Republic of Korea</span></td></tr>
-    <tr><th>이메일</th><td><a href="mailto:ayocoding01@gmail.com">ayocoding01@gmail.com</a></td></tr>
-  </table>
-</div></section>
-
-<footer><div class="wrap">
-  © 2026 아요코딩. All rights reserved.
+  <dl>
+    <dt>상호</dt><dd>아요코딩 (AYOCODING)</dd>
+    <dt>대표자</dt><dd>남재진</dd>
+    <dt>사업자등록번호</dt><dd>356-03-03779</dd>
+    <dt>통신판매업 신고번호</dt><dd>제2026-부산북구-0566호</dd>
+    <dt>주소</dt><dd>부산광역시 북구 화명대로 20, 8층 801-165호 (화명동, 대성빌딩)</dd>
+    <dt>이메일</dt><dd><a href="mailto:ayocoding01@gmail.com">ayocoding01@gmail.com</a></dd>
+  </dl>
   <div class="en">AYOCODING · CEO Jaejin Nam · Business Reg. No. 356-03-03779 · 801-165, 20 Hwamyeong-daero, Buk-gu, Busan, 46527, Republic of Korea · ayocoding01@gmail.com · D-U-N-S 697128801</div>
+  <div class="copy">© 2026 아요코딩. All rights reserved.</div>
 </div></footer>
+
+<script>
+  (function(){
+    var hd=document.getElementById('hd');
+    var onS=function(){hd.classList.toggle('on',scrollY>8)};onS();addEventListener('scroll',onS,{passive:true});
+    var els=document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
 </body>
 </html>
