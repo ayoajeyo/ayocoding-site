@@ -7,9 +7,11 @@
 <meta name="description" content="아요코딩은 현장 물리치료사가 직접 만드는 운동·재활 현장용 앱을 개발합니다. 바디샷(BODYSHOT), 메디컬링크.">
 <meta property="og:title" content="아요코딩 AYOCODING">
 <meta property="og:description" content="현장을 아는 사람이 만드는 앱 — 바디샷, 메디컬링크">
-<meta property="og:image" content="https://ayocoding.co.kr/img/bodyshot.png">
+<meta property="og:image" content="https://ayocoding.co.kr/img/logo-512.png">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="img/bodyshot.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -29,7 +31,9 @@
   header.on{box-shadow:0 1px 0 var(--g200)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.4px}
-  .logo i{width:26px;height:26px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px;font-weight:800}
+  .logo img{height:25px;width:auto}
+  .logo span{font-weight:400;letter-spacing:.02em;color:var(--g800)}
+  .logo span b{font-weight:800;color:#1E2A5A}
   nav{display:flex;align-items:center;gap:6px}
   nav a{padding:8px 12px;border-radius:8px;font-size:15px;font-weight:500;color:var(--g700);transition:background .15s,color .15s}
   nav a:hover{background:var(--g100);color:var(--g900)}
@@ -280,7 +284,7 @@
 </head>
 <body>
 <header id="hd"><i class="prog" id="prog"></i><div class="wrap">
-  <a class="logo" href="#"><i>A</i>AYOCODING</a>
+  <a class="logo" href="#" aria-label="아요코딩 AYOCODING"><img src="img/logo.png" alt="" width="34" height="25"><span><b>AYO</b> CODING</span></a>
   <nav>
     <a href="#bodyshot">바디샷</a>
     <a href="#medicallink">메디컬링크</a>
@@ -444,7 +448,7 @@
 
 <footer><div class="wrap">
   <div class="top">
-    <a class="logo" href="#"><i>A</i>AYOCODING</a>
+    <a class="logo" href="#" aria-label="아요코딩 AYOCODING"><img src="img/logo.png" alt="" width="34" height="25"><span><b>AYO</b> CODING</span></a>
     <div class="cols">
       <div class="col"><h4>바디샷</h4>
         <a href="https://ayoajeyo.github.io/posture-check/">앱 열기</a>
