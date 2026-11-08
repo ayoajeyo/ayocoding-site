@@ -104,7 +104,7 @@
   /* about */
   .quote{font-size:clamp(24px,3.4vw,38px);line-height:1.5;letter-spacing:-.03em;font-weight:700;max-width:860px;margin:0 auto}
   .quote em{font-style:normal;color:var(--blue)}
-  .note{margin-top:28px;font-size:15px;color:var(--g500)}
+  .note{margin-top:28px;font-size:15px;color:var(--g600)}
 
   /* cta */
   .ctaband{padding:0 0 140px}
@@ -122,10 +122,10 @@
   footer .col a:hover{color:var(--g900)}
   footer .cols{display:flex;gap:56px;flex-wrap:wrap}
   footer dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;line-height:1.6}
-  footer dt{color:var(--g500)}
+  footer dt{color:var(--g600)}
   footer dd{color:var(--g700)}
-  footer .en{margin-top:20px;font-size:13px;color:var(--g500);line-height:1.7}
-  footer .copy{margin-top:16px;font-size:13px;color:var(--g500)}
+  footer .en{margin-top:20px;font-size:13px;color:var(--g600);line-height:1.7}
+  footer .copy{margin-top:16px;font-size:13px;color:var(--g600)}
 
   /* reveal */
   .rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -203,7 +203,7 @@
   .steps li{display:flex;gap:16px;align-items:flex-start;padding:22px 22px;border-radius:20px;background:#fff;transition:box-shadow .4s,transform .6s,opacity .9s}
   .steps li .n{flex:none;width:36px;height:36px;border-radius:12px;background:var(--g100);color:var(--g500);display:grid;place-items:center;font-weight:800;transition:background .4s,color .4s}
   .steps li h3{font-size:19px;letter-spacing:-.02em;color:var(--g500);transition:color .4s}
-  .steps li p{font-size:15.5px;color:var(--g500);margin-top:2px}
+  .steps li p{font-size:15.5px;color:var(--g600);margin-top:2px}
   .steps li.on{box-shadow:0 16px 40px -18px rgba(49,130,246,.45);transform:translateX(6px)}
   .steps li.on .n{background:var(--blue);color:#fff}
   .steps li.on h3{color:var(--g900)}
@@ -278,6 +278,49 @@
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important}
+    .tilt{transform:none!important}
+  }
+
+  /* ===== 레퍼런스 반영 (11-08): PC 히어로 2단 · 신뢰 문구 · 선 아이콘 · 숫자 띠 · 3D 기울기 ===== */
+  .ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .btn .arr{margin-left:6px;transition:transform .2s}
+  .btn:hover .arr{transform:translateX(4px)}
+  .trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;font-size:14.5px;font-weight:600;color:var(--g600)}
+  .trust li{display:flex;align-items:center;gap:6px}
+  .trust .ico{color:var(--blue);font-size:16px;stroke-width:2.6}
+  .chip b .ico{font-size:14px}
+  .card b .ico{font-size:22px}
+  .stats{border-top:1px solid var(--g200);background:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:36px 20px;text-align:center}
+  .stat + .stat{border-left:1px solid var(--g200)}
+  .stat strong{display:block;font-size:clamp(34px,4.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--g900)}
+  .stat strong span{color:var(--blue);font-variant-numeric:tabular-nums}
+  .stat>span{display:block;margin-top:8px;font-size:15px;color:var(--g600)}
+  .tilt{transition:transform .25s ease-out,opacity .9s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d;will-change:transform}
+  @media(min-width:1000px){
+    .hero{text-align:left}
+    .hgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center;width:100%}
+    .hero p{margin-left:0}
+    .hero .btns,.trust{justify-content:flex-start}
+    .hero h1{font-size:clamp(44px,4.9vw,66px)}
+    .fan{margin:0;width:100%;height:520px}
+    .fan .slot{width:200px}
+    .fan .slot:nth-child(2){width:236px}
+    .fan .slot:nth-child(1){transform:translateX(-150%) rotate(-8deg) translateY(-20px)}
+    .fan .slot:nth-child(3){transform:translateX(50%) rotate(8deg) translateY(-20px)}
+    .fan .slot:nth-child(2){transform:translateX(-50%) translateY(-60px)}
+  }
+  .btn{white-space:nowrap}
+  @media(max-width:700px){
+    .stats .wrap{padding:0}
+    .stat{padding:22px 6px}
+    .stat strong{font-size:30px}
+    .stat>span{font-size:12.5px;margin-top:4px}
+    .stat .long{display:none}
+    .hero .btns .btn .arr{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){.tilt{transform:none!important}
     .stage .dot{transform:scale(1)}.stage .bone,.stage .arc{stroke-dashoffset:0}.stage .ref,.stage .lab,.stage .wedge{opacity:1}
   }
 </style>
@@ -296,23 +339,36 @@
 <main>
 <div class="hero">
   <div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
-  <div class="wrap">
+  <div class="wrap hgrid">
+  <div class="htxt">
   <span class="eyebrow rv">현직 물리치료사가 만드는 앱</span>
   <h1 class="rv d1">현장을 아는 사람이<br>현장에서 쓰는 앱을<br><em>만듭니다</em></h1>
   <p class="rv d2">운동·자세 관리 센터와 병원에서 매일 겪는 불편을 <br>직접 겪어 본 사람이, 쓰기 쉬운 도구로 바꿉니다.</p>
   <div class="btns rv d3">
-    <a class="btn p" href="#bodyshot">서비스 둘러보기</a>
+    <a class="btn p" href="#bodyshot">서비스 둘러보기 <svg class="ico arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a class="btn s" href="#contact">도입 문의</a>
+  </div>
+  <ul class="trust rv d3">
+    <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>물리치료 현장 경험으로 설계</li>
+    <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>휴대폰 하나로 측정</li>
+    <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>웹 · Android</li>
+  </ul>
   </div>
   <div class="fan rv d3" id="fan" aria-hidden="true">
     <div class="slot"><div class="ph"><img src="img/shot-05-fhp.jpg" alt=""></div></div>
     <div class="slot"><div class="ph"><img src="img/shot-01-body-front.jpg" alt=""><span class="scan"></span><span class="status"><i></i><span id="stxt">자세 분석 중</span></span></div></div>
     <div class="slot"><div class="ph"><img src="img/shot-03-rom.jpg" alt=""></div></div>
-    <span class="chip c1"><b>↔</b>어깨 높이</span>
-    <span class="chip c2"><b>∠</b>관절 각도</span>
-    <span class="chip c3"><b>◎</b>거북목 CVA</span>
-    <span class="chip c4"><b>⇅</b>골반 균형</span>
+    <span class="chip c1"><b><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg></b>어깨 높이</span>
+    <span class="chip c2"><b><svg class="ico" viewBox="0 0 24 24"><path d="M4 20h16M4 20 16 6"/><path d="M10 20a6 6 0 0 0-1.8-4.3"/></svg></b>관절 각도</span>
+    <span class="chip c3"><b><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M12 10.5V21M8 15h8"/></svg></b>거북목 CVA</span>
+    <span class="chip c4"><b><svg class="ico" viewBox="0 0 24 24"><path d="M12 3v18M7 7l-4 5 4 5M17 7l4 5-4 5"/></svg></b>골반 균형</span>
   </div>
+</div></div>
+
+<div class="stats"><div class="wrap">
+  <div class="stat rv"><strong><span data-count="4">4</span>가지</strong><span>측정 종류<b class="long" style="font-weight:400"> — 체형·관절 가동범위·거북목·척추</b></span></div>
+  <div class="stat rv d1"><strong><span data-count="7">7</span>곳</strong><span>관절 부위<b class="long" style="font-weight:400"> 각도 측정</b></span></div>
+  <div class="stat rv d2"><strong><span data-count="1">1</span>장</strong><span>사진 한 장<b class="long" style="font-weight:400">으로 바로 분석</b></span></div>
 </div></div>
 
 <div class="marquee" aria-hidden="true"><div class="track">
@@ -418,9 +474,9 @@
   <h2 class="rv d1">병원 직원이 함께 쓰는<br>업무 앱</h2>
   <p class="desc rv d2">외래 대기 순서 안내부터 입원환자·예약 관리, 직원 메신저와 공지까지. <br>휴대폰과 PC 어디서나 웹으로 써요.</p>
   <div class="cards">
-    <div class="card rv"><b>⏱</b><h3>외래 대기 순서 안내</h3><p>외래 대기 순서를 직원이 함께 보며 안내해요.</p></div>
-    <div class="card rv d1"><b>🛏</b><h3>입원환자·예약 관리</h3><p>입원환자와 예약을 한곳에서 관리해요.</p></div>
-    <div class="card rv d2"><b>💬</b><h3>직원 메신저·공지</h3><p>직원끼리 메시지와 공지를 주고받아요.</p></div>
+    <div class="card rv"><b><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></b><h3>외래 대기 순서 안내</h3><p>외래 대기 순서를 직원이 함께 보며 안내해요.</p></div>
+    <div class="card rv d1"><b><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3M8 17h6"/></svg></b><h3>입원환자·예약 관리</h3><p>입원환자와 예약을 한곳에서 관리해요.</p></div>
+    <div class="card rv d2"><b><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></b><h3>직원 메신저·공지</h3><p>직원끼리 메시지와 공지를 주고받아요.</p></div>
   </div>
   <p class="desc rv" style="font-size:16px;margin-top:32px">환자 정보는 로그인한 직원만 볼 수 있고, 열람 기록이 남아요.</p>
   <div class="btns rv"><a class="btn w" href="https://medicallinkapp.co.kr">메디컬링크 열기</a></div>
@@ -520,6 +576,29 @@
       else{clearTimeout(timer);timer=null}
     })},{threshold:.35}).observe(stage);
     steps.forEach(function(l,i){l.style.cursor='pointer';l.addEventListener('click',function(){clearTimeout(timer);go(i+1);timer=setTimeout(loop,4000)})});
+  })();
+
+  /* 숫자 올라가기 · 마우스 따라 살짝 기울기(PC) */
+  (function(){
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nums=document.querySelectorAll('[data-count]');
+    if(!reduce&&'IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(!e.isIntersecting)return;io.unobserve(e.target);
+        var el=e.target,end=+el.dataset.count,t0=performance.now(),dur=900;
+        (function step(t){var k=Math.min((t-t0)/dur,1);el.textContent=Math.round(end*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(t0);
+      })},{threshold:.6});
+      nums.forEach(function(n){n.textContent='0';io.observe(n)});
+    }
+    if(reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+    document.querySelectorAll('#fan,.feat .vis,.stage').forEach(function(el){
+      el.classList.add('tilt');
+      el.addEventListener('mousemove',function(ev){
+        var r=el.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(1000px) rotateY('+(x*10).toFixed(2)+'deg) rotateX('+(-y*8).toFixed(2)+'deg)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
   })();
 </script>
 </body>
