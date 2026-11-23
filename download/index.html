@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>바디샷 다운로드 · 아요코딩</title>
+<meta name="description" content="사진 한 장으로 체형·관절 가동범위를 측정하는 바디샷. Google Play, App Store에서 받으세요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ayocoding.co.kr/download/">
+<meta property="og:title" content="바디샷 다운로드">
+<meta property="og:description" content="사진 한 장으로 체형·관절 가동범위 측정 — Google Play · App Store">
+<meta property="og:image" content="https://ayocoding.co.kr/img/logo-512.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://ayocoding.co.kr/download/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --blue:#3182F6;--blue-d:#1B64DA;--blue-l:#E8F3FF;
+    --g900:#191F28;--g800:#333D4B;--g700:#4E5968;--g600:#6B7684;--g500:#8B95A1;--g200:#E5E8EB;--g100:#F2F4F6;--g50:#F9FAFB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--g900);background:#fff;line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  header{height:60px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--g100)}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:-.4px}
+  .logo img{display:block;height:24px;width:auto}
+  .logo span{font-weight:400;letter-spacing:.02em;color:var(--g800)}
+  .logo span b{font-weight:800;color:#1E2A5A}
+  main{flex:1;width:100%;max-width:440px;margin:0 auto;padding:48px 20px 40px;text-align:center}
+  .appicon{width:96px;height:96px;border-radius:24px;box-shadow:0 12px 30px -10px rgba(25,31,40,.3);margin-bottom:24px}
+  h1{font-size:30px;line-height:1.3;letter-spacing:-.035em;font-weight:800}
+  .sub{margin:12px 0 32px;font-size:17px;color:var(--g700)}
+  .status{display:none;margin:-12px 0 24px;font-size:15px;font-weight:600;color:var(--blue)}
+  .status.on{display:block}
+  .stores{display:flex;flex-direction:column;gap:12px}
+  .store{display:flex;align-items:center;justify-content:center;gap:12px;height:64px;border-radius:16px;font-size:18px;font-weight:700;transition:transform .15s,background .15s}
+  .store:active{transform:scale(.98)}
+  .store svg{width:26px;height:26px;flex:none}
+  .store.play{background:var(--blue);color:#fff}
+  .store.play:hover{background:var(--blue-d)}
+  .store.apple{background:var(--g900);color:#fff}
+  .store.apple:hover{background:#000}
+  .store.mine{order:-1}
+  .insta{display:none;margin-top:20px;padding:14px 16px;border-radius:14px;background:var(--blue-l);color:var(--g800);font-size:15px;line-height:1.55}
+  .insta.on{display:block}
+  .web{display:inline-block;margin-top:28px;font-size:15px;color:var(--g600);text-decoration:underline;text-underline-offset:3px}
+  footer{padding:24px 20px 36px;text-align:center;font-size:13px;color:var(--g500)}
+  footer a{color:var(--g600)}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="아요코딩 AYOCODING"><img src="/img/logo.png" alt="" width="33" height="24"><span><b>AYO</b> CODING</span></a>
+</header>
+<main>
+  <img class="appicon" src="/img/bodyshot.png" alt="바디샷 아이콘" width="96" height="96">
+  <h1>바디샷</h1>
+  <p class="sub">사진 한 장으로 체형·관절 가동범위 측정</p>
+  <p class="status" id="status">스토어를 여는 중이에요…</p>
+
+  <div class="stores">
+    <a class="store play" id="btn-play" href="https://play.google.com/store/apps/details?id=com.ayocoding.bodyshot">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.6 2.2c-.3.2-.5.6-.5 1.1v17.4c0 .5.2.9.5 1.1l9.6-9.8-9.6-9.8zm10.6 10.8 2.7 2.8-11.6 6.6 8.9-9.4zm0-2 -8.9-9.4 11.6 6.6-2.7 2.8zm3.9-1.6 3 1.7c.9.5.9 1.3 0 1.8l-3 1.7-3-3 3-3.2z"/></svg>
+      Google Play에서 받기
+    </a>
+    <a class="store apple" id="btn-apple" href="https://apps.apple.com/kr/app/id6834475806">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4 1-1.4 1.3-2.7 1.4-2.8-.1 0-2.6-1-2.6-4.2zM13.9 4.9c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+      App Store에서 받기
+    </a>
+  </div>
+
+  <p class="insta" id="insta">스토어가 안 열리면 오른쪽 위 <b>⋮</b> → <b>외부 브라우저로 열기</b>를 눌러 주세요.</p>
+
+  <a class="web" href="https://ayoajeyo.github.io/posture-check/">설치 없이 웹에서 써 보기</a>
+</main>
+<footer>
+  <a href="/">아요코딩</a> · <a href="mailto:ayocoding01@gmail.com">ayocoding01@gmail.com</a>
+</footer>
+<script>
+(function(){
+  var PKG = 'com.ayocoding.bodyshot';
+  var PLAY = 'https://play.google.com/store/apps/details?id=' + PKG;
+  var APPLE = 'https://apps.apple.com/kr/app/id6834475806';
+  var INTENT = 'intent://details?id=' + PKG + '#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  var inInsta = /Instagram/i.test(ua);
+
+  var play = document.getElementById('btn-play');
+  var apple = document.getElementById('btn-apple');
+
+  if (isAndroid) play.href = INTENT;
+  if (isAndroid) play.classList.add('mine');
+  if (isIOS) apple.classList.add('mine');
+  if (inInsta) document.getElementById('insta').classList.add('on');
+
+  // 자동 이동은 페이지 로드 시 1회만 (뒤로 가기·새로고침으로 다시 돌아와도 반복 안 함)
+  var KEY = 'bodyshot_dl_auto';
+  var done = false;
+  try { done = sessionStorage.getItem(KEY) === '1'; sessionStorage.setItem(KEY, '1'); } catch (e) {}
+  if (done) return;
+
+  var target = isAndroid ? INTENT : (isIOS ? APPLE : null);
+  if (!target) return;
+  document.getElementById('status').classList.add('on');
+  setTimeout(function(){ window.location.href = target; }, 300);
+  setTimeout(function(){ document.getElementById('status').classList.remove('on'); }, 3000);
+})();
+</script>
+</body>
+</html>
